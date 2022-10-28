@@ -10,6 +10,7 @@ jobs:
     steps:
       - run: curl -LO https://github.com/DIRACGrid/DIRACOS2/releases/latest/download/DIRACOS-Darwin-x86_64.sh
       - run: bash DIRACOS-Darwin-x86_64.sh
+      - run: source diracos/diracosrc
       - run: pip install DIRAC~=7.3
 
 
@@ -22,4 +23,5 @@ jobs:
     steps:
       - run: curl -LO https://github.com/DIRACGrid/DIRACOS2/releases/latest/download/DIRACOS-Linux-x86_64.sh
       - run: bash DIRACOS-Linux-x86_64.sh
+      - run: source diracos/diracosrc
       - run: pip install DIRAC~=7.3
