@@ -5,8 +5,21 @@ jobs:
     strategy:
       matrix:
         os: [macos-11, macos-12]
+        fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
       - run: curl -LO https://github.com/DIRACGrid/DIRACOS2/releases/latest/download/DIRACOS-Darwin-x86_64.sh
       - run: bash DIRACOS-Darwin-x86_64.sh
+      - run: pip install DIRAC
+
+
+  Ubuntu:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-20.04, ubuntu-18.04]
+        fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: curl -LO https://github.com/DIRACGrid/DIRACOS2/releases/latest/download/DIRACOS-Linux-x86_64.sh
+      - run: bash DIRACOS-Linux-x86_64.sh
       - run: pip install DIRAC
