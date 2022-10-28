@@ -1,0 +1,12 @@
+name: InstallDirac
+on: [push]
+jobs:
+  MacOS:
+    strategy:
+      matrix:
+        os: [macos-11, macos-12]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: curl -LO  curl -LO https://github.com/DIRACGrid/DIRACOS2/releases/latest/download/DIRACOS-Darwin-x86_64.sh
+      - run: bash DIRACOS-Darwin-x86_64.sh
+      - run: pip install DIRAC
